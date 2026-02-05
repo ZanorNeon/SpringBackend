@@ -3,8 +3,11 @@ package com.example.SpringBackend.controller;
 import com.example.SpringBackend.model.ToDo;
 import com.example.SpringBackend.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,13 +28,24 @@ public class ToDoController {
         return toDoService.findAll();
     }
 
-    @GetMapping("/api/todos/{toDoId}")
+    @GetMapping("/api/todos/{id}")
     public ToDo getToDo(@PathVariable long toDoId) {
         ToDo theToDo = toDoService.findById(toDoId);
         if (theToDo == null) {
-            throw new RuntimeException("Task id not found - " + toDoId);
+            throw new RuntimeException("Todo id not found - " + toDoId);
         }
         return theToDo;
     }
 
+    @PostMapping("/api/todos")
+    public ToDo addTask(@RequestBody ToDo todo) {
+        return toDoService.save(todo);
+    }
+
+    @DeleteMapping("/api/todos/{id}")
+    public String deleteTask(@PathVariable long toDoId) {
+        toDoService.deleteById(toDoId);
+        return "Deleted Todo id - " + toDoId;
+
+    }
 }

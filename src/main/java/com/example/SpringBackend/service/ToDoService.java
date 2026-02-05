@@ -16,11 +16,22 @@ public class ToDoService {
     }
 
     public List<ToDo> findAll() {
-        return ToDoRepository.findAll();
+        return toDoRepository.findAll();
     }
 
     public ToDo findById(long id) {
-        Optional<ToDo> result = ToDoRepository.findById(id);
-        return result.orElseThrow(() -> new RuntimeException("Did not find task id - " + id));
+        Optional<ToDo> result = toDoRepository.findById(id);
+        return result.orElseThrow(() -> new RuntimeException("Did not find todo id - " + id));
+    }
+
+    public ToDo save(ToDo theToDos) {
+        return toDoRepository.save(theToDos);
+    }
+
+    public void deleteById(long id) {
+        if (!toDoRepository.existsById(id)) {
+            throw new RuntimeException("Todo id not found - " + id);
+        }
+        toDoRepository.deleteById(id);
     }
 }
