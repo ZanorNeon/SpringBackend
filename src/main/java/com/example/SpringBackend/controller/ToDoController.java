@@ -38,12 +38,12 @@ public class ToDoController {
     }
 
     @PostMapping("/api/todos")
-    public ToDo addTask(@RequestBody ToDo todo) {
+    public ToDo addToDo(@RequestBody ToDo todo) {
         return toDoService.save(todo);
     }
 
     @DeleteMapping("/api/todos/{id}")
-    public String deleteTask(@PathVariable long toDoId) {
+    public String deleteToDo(@PathVariable long toDoId) {
         toDoService.deleteById(toDoId);
         return "Deleted Todo id - " + toDoId;
 

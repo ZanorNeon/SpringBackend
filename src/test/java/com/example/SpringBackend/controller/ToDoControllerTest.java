@@ -7,18 +7,28 @@ import static org.junit.jupiter.api.Assertions.*;
 class ToDoControllerTest {
 
     @Test
-    void findAll() {
+    void findAll_ReturnsToDoList() throws Exception {
     }
 
     @Test
-    void getToDo() {
+    void getToDo_ValidId_ReturnsToDo() throws Exception {
     }
 
     @Test
-    void addTask() {
+    void getToDo_InvalidId_Returns404() throws Exception {
     }
 
     @Test
-    void deleteTask() {
+    void addToDo_ReturnsSavedToDo() throws Exception {
+    }
+
+    @Test
+    void deleteToDo_ValidId_ReturnsConfirmation() throws Exception {
+
+    }
+
+    @Test
+    void deleteToDo_InvalidId_Returns404() throws Exception {
+
     }
 }

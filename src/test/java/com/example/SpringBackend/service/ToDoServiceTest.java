@@ -7,18 +7,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class ToDoServiceTest {
 
     @Test
-    void findAll() {
+    void findAll_ReturnsListOfTasks() {
     }
 
     @Test
-    void findById() {
+    void findById_ExistingId_ReturnsTask() {
     }
 
     @Test
-    void save() {
+    void findById_NonExistingId_ThrowsException() {
     }
 
     @Test
-    void deleteById() {
+    void save_ReturnsSavedTask() {
+    }
+
+    @Test
+    void deleteById_CallsRepository() {
+
     }
 }
