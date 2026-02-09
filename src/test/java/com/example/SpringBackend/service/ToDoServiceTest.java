@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class ToDoServiceTest {
 
     @Test
-    void findAll_ReturnsListOfTasks() {
+    void findAll_ReturnsListOfToDos() {
     }
 
     @Test
-    void findById_ExistingId_ReturnsTask() {
+    void findById_ExistingId_ReturnsToDo() {
     }
 
     @Test
@@ -19,7 +19,7 @@ class ToDoServiceTest {
     }
 
     @Test
-    void save_ReturnsSavedTask() {
+    void save_ReturnsSavedToDo() {
     }
 
     @Test

@@ -12,7 +12,9 @@ public class ToDo {
     private long id;
     private String text;
 
-    private ToDo() {
+    public ToDo(long id, String text) {
+        this.id = id;
+        this.text = text;
     }
 
     public long getId() {
@@ -28,11 +30,6 @@ public class ToDo {
     }
 
     public void setText(String text) {
-        this.text = text;
-    }
-
-    public ToDo(long id, String text) {
-        this.id = id;
         this.text = text;
     }
 
