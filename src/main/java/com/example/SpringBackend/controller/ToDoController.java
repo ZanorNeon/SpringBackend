@@ -23,12 +23,12 @@ public class ToDoController {
         this.toDoService = toDoService;
     }
 
-    @GetMapping("/api/todos")
+    @GetMapping("/todos")
     public List<ToDo> findAll() {
         return toDoService.findAll();
     }
 
-    @GetMapping("/api/todos/{Id}")
+    @GetMapping("/todos/{Id}")
     public ToDo getToDo(@PathVariable long toDoId) {
         ToDo theToDo = toDoService.findById(toDoId);
         if (theToDo == null) {
@@ -37,12 +37,12 @@ public class ToDoController {
         return theToDo;
     }
 
-    @PostMapping("/api/todos")
+    @PostMapping("/todos")
     public ToDo addToDo(@RequestBody ToDo toDo) {
         return toDoService.save(toDo);
     }
 
-    @DeleteMapping("/api/todos/{Id}")
+    @DeleteMapping("/todos/{Id}")
     public String deleteToDo(@PathVariable long toDoId) {
         toDoService.deleteById(toDoId);
         return "Deleted Todo id - " + toDoId;
