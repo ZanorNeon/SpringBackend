@@ -28,11 +28,11 @@ public class ToDoController {
         return toDoService.findAll();
     }
 
-    @GetMapping("/todos/{Id}")
-    public ToDo getToDo(@PathVariable long toDoId) {
-        ToDo theToDo = toDoService.findById(toDoId);
+    @GetMapping("/todos/{id}")
+    public ToDo getToDo(@PathVariable long id){
+        ToDo theToDo = toDoService.findById(id);
         if (theToDo == null) {
-            throw new RuntimeException("Todo id not found - " + toDoId);
+            throw new RuntimeException("ToDo id not found - " + id);
         }
         return theToDo;
     }
@@ -42,10 +42,10 @@ public class ToDoController {
         return toDoService.save(toDo);
     }
 
-    @DeleteMapping("/todos/{Id}")
-    public String deleteToDo(@PathVariable long toDoId) {
-        toDoService.deleteById(toDoId);
-        return "Deleted Todo id - " + toDoId;
+    @DeleteMapping("/todos/{id}")
+    public String deleteToDo(@PathVariable long id) {
+        toDoService.deleteById(id);
+        return "Deleted ToDo id - " + id;
 
     }
 }

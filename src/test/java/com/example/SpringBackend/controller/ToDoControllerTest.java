@@ -63,7 +63,7 @@ class ToDoControllerTest {
         when(toDoService.findById(999)).thenReturn(null);
         mockMvc.perform(get("/api/todos/999"))
                 .andExpect(status().isNotFound())
-                .andExpect(content().string("Todo id not found - 999"));
+                .andExpect(content().string("ToDo id not found - 999"));
     }
 
     @Test
@@ -93,6 +93,6 @@ class ToDoControllerTest {
         doThrow(new RuntimeException()).when(toDoService).deleteById(999);
         mockMvc.perform(delete("/api/todos/999"))
                 .andExpect(status().isNotFound())
-                .andExpect(content().string(""));
+                .andExpect(content().string("ToDo id not found - 999"));
     }
 }
