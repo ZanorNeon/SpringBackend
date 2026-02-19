@@ -16,7 +16,9 @@ public class ToDo {
         this.id = id;
         this.text = text;
     }
-    public ToDo(){}
+
+    public ToDo() {
+    }
 
     public long getId() {
         return id;

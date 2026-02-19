@@ -21,7 +21,7 @@ public class ToDoService {
 
     public ToDo findById(long id) {
         Optional<ToDo> result = toDoRepository.findById(id);
-        return result.orElseThrow(() -> new RuntimeException("Did not find todo id - " + id));
+        return result.orElseThrow(() -> new RuntimeException("Did not find ToDo id - " + id));
     }
 
     public ToDo save(ToDo theToDos) {
@@ -30,7 +30,7 @@ public class ToDoService {
 
     public void deleteById(long id) {
         if (!toDoRepository.existsById(id)) {
-            throw new RuntimeException("Todo id not found - " + id);
+            throw new RuntimeException("ToDo id not found - " + id);
         }
         toDoRepository.deleteById(id);
     }
