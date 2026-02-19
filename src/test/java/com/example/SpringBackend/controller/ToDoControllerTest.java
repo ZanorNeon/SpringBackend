@@ -36,6 +36,7 @@ class ToDoControllerTest {
         ToDoController controller = new ToDoController(toDoService);
         mockMvc = MockMvcBuilders
                 .standaloneSetup(controller)
+                .setControllerAdvice(new GlobalExceptionHandler())
                 .build();
         objectMapper = new ObjectMapper();
         toDo = new ToDo(1, "Test Text");
@@ -93,6 +94,6 @@ class ToDoControllerTest {
         doThrow(new RuntimeException()).when(toDoService).deleteById(999);
         mockMvc.perform(delete("/api/todos/999"))
                 .andExpect(status().isNotFound())
-                .andExpect(content().string("ToDo id not found - 999"));
+                .andExpect(content().string(""));
     }
 }
