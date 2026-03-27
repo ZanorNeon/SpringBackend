@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class ToDoEntityControllerTest {
+class ToDoControllerTest {
     private MockMvc mockMvc;
     private ToDoService toDoService;
     private ObjectMapper objectMapper;

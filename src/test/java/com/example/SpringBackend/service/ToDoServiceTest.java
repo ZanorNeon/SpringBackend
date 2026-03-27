@@ -21,7 +21,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ToDoEntityServiceTest {
+class ToDoServiceTest {
 
     @Mock
     private ToDoRepository toDoRepository;
