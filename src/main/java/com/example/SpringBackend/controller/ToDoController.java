@@ -1,6 +1,6 @@
 package com.example.SpringBackend.controller;
 
-import com.example.SpringBackend.model.ToDo;
+import com.example.SpringBackend.model.ToDoEntity;
 import com.example.SpringBackend.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,28 +26,28 @@ public class ToDoController {
     }
 
     @GetMapping("/todos")
-    public List<ToDo> findAll() {
+    public List<ToDoEntity> findAll() {
         return toDoService.findAll();
     }
 
     @GetMapping("/todos/{id}")
-    public ToDo getToDo(@PathVariable long id) {
-        ToDo theToDo = toDoService.findById(id);
-        if (theToDo == null) {
-            throw new RuntimeException("ToDo id not found - " + id);
+    public ToDoEntity getToDo(@PathVariable long id) {
+        ToDoEntity theToDoEntity = toDoService.findById(id);
+        if (theToDoEntity == null) {
+            throw new RuntimeException("ToDoEntity id not found - " + id);
         }
-        return theToDo;
+        return theToDoEntity;
     }
 
     @PostMapping("/todos")
-    public ToDo addToDo(@RequestBody ToDo toDo) {
-        return toDoService.save(toDo);
+    public ToDoEntity addToDo(@RequestBody ToDoEntity toDoEntity) {
+        return toDoService.save(toDoEntity);
     }
 
     @DeleteMapping("/todos/{id}")
     public String deleteToDo(@PathVariable long id) {
         toDoService.deleteById(id);
-        return "Deleted ToDo id - " + id;
+        return "Deleted ToDoEntity id - " + id;
 
     }
 }

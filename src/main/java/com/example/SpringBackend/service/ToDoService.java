@@ -1,6 +1,6 @@
 package com.example.SpringBackend.service;
 
-import com.example.SpringBackend.model.ToDo;
+import com.example.SpringBackend.model.ToDoEntity;
 import com.example.SpringBackend.repository.ToDoRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,22 +15,22 @@ public class ToDoService {
         this.toDoRepository = toDoRepository;
     }
 
-    public List<ToDo> findAll() {
+    public List<ToDoEntity> findAll() {
         return toDoRepository.findAll();
     }
 
-    public ToDo findById(long id) {
-        Optional<ToDo> result = toDoRepository.findById(id);
-        return result.orElseThrow(() -> new RuntimeException("Did not find ToDo id - " + id));
+    public ToDoEntity findById(long id) {
+        Optional<ToDoEntity> result = toDoRepository.findById(id);
+        return result.orElseThrow(() -> new RuntimeException("Did not find ToDoEntity id - " + id));
     }
 
-    public ToDo save(ToDo theToDos) {
-        return toDoRepository.save(theToDos);
+    public ToDoEntity save(ToDoEntity theToDosEntity) {
+        return toDoRepository.save(theToDosEntity);
     }
 
     public void deleteById(long id) {
         if (!toDoRepository.existsById(id)) {
-            throw new RuntimeException("ToDo id not found - " + id);
+            throw new RuntimeException("ToDoEntity id not found - " + id);
         }
         toDoRepository.deleteById(id);
     }

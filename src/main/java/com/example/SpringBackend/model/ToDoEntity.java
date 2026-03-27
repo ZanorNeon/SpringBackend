@@ -6,18 +6,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class ToDo {
+public class ToDoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String text;
 
-    public ToDo(long id, String text) {
+    public ToDoEntity(long id, String text) {
         this.id = id;
         this.text = text;
     }
 
-    public ToDo() {
+    public ToDoEntity() {
     }
 
     public long getId() {
@@ -38,7 +38,7 @@ public class ToDo {
 
     @Override
     public String toString() {
-        return "ToDo{" +
+        return "ToDoEntity{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
                 '}';
