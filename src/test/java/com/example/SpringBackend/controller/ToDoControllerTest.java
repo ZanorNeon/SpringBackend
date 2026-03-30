@@ -59,7 +59,9 @@ class ToDoControllerTest {
 
     @Test
     void getToDo_InvalidId_Returns404() throws Exception {
-        when(toDoService.findById(999)).thenReturn(null);
+        when(toDoService.findById(999))
+                .thenThrow(new RuntimeException("ToDoEntity id not found - 999"));
+
         mockMvc.perform(get("/api/todos/999"))
                 .andExpect(status().isNotFound())
                 .andExpect(content().string("ToDoEntity id not found - 999"));

@@ -32,11 +32,7 @@ public class ToDoController {
 
     @GetMapping("/todos/{id}")
     public ToDoEntity getToDo(@PathVariable long id) {
-        ToDoEntity theToDoEntity = toDoService.findById(id);
-        if (theToDoEntity == null) {
-            throw new RuntimeException("ToDoEntity id not found - " + id);
-        }
-        return theToDoEntity;
+        return toDoService.findById(id);
     }
 
     @PostMapping("/todos")
